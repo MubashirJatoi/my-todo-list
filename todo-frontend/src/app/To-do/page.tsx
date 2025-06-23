@@ -109,7 +109,7 @@ export default function Todo() {
 
         try {
             const response = await fetch(`${API_BASE_URL}/${id}`, {
-                method: 'DELETE',
+                method: 'DELETE', // delete method 
             });
 
             if (!response.ok) {
