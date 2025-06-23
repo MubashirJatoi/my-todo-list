@@ -31,9 +31,9 @@ export default function Todo() {
             const data: Todo[] = await response.json()
             setTodos(data);
         } catch(err: unknown) {
-            console.error('Failed to fetch data todos:', err);
             const errorMessage = err instanceof Error ? err.message : String(err);
-            setError(`Failed to load todos: ${errorMessage || "Unknown error"}`);
+            console.error('Failed to fetch data todos:', errorMessage);
+            setError(`Failed to load todos: ${errorMessage}`);
         } finally {
             setLoading(false);
         }
@@ -72,8 +72,8 @@ export default function Todo() {
             setTodos([...todos, addedTodo]);
             setNewTodoTitle('');
         } catch (err: unknown) {
-            console.error(`Failed to add todo ${err}`)
             const errorMessage = err instanceof Error ? err.message : String(err);
+            console.error('Failed to add todo:', errorMessage);
             setError(`Failed to add todo: ${errorMessage}`);
         }
     }
@@ -98,8 +98,8 @@ export default function Todo() {
             }
             setTodos(todos.map(t => (t.id === todoToToggle.id ? updatedTodo : t)));
         } catch (err: unknown) {
-            console.error('Failed to toggle todo completed:', err);
             const errorMessage = err instanceof Error ? err.message : String(err);
+            console.error('Failed to toggle todo completed:', errorMessage);
             setError(`Failed to update todo: ${errorMessage}`)
         }
     }
@@ -120,8 +120,8 @@ export default function Todo() {
             }
             setTodos(todos.filter(t => t.id !== id));
         } catch (err: unknown) {
-            console.error('Failed to delete todo', err);
             const errorMessage = err instanceof Error ? err.message : String(err);
+            console.error('Failed to delete todo:', errorMessage);
             setError(`Failed to delete todo: ${errorMessage}`)
         }
     }
@@ -163,8 +163,8 @@ export default function Todo() {
             setEditingTodo(null);
             setNewTodoTitle('');
         } catch (err: unknown) {
-            console.error('Failed to update todo:', err);
             const errorMessage = err instanceof Error ? err.message : String(err);
+            console.error('Failed to update todo:', errorMessage);
             setError(`Failed to update todo: ${errorMessage}`)
         }
     };
