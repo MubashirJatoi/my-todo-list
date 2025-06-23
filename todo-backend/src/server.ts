@@ -19,23 +19,7 @@ interface Todo {
     completed: boolean;
 }
 
-let todos: Todo[] = [
-    {
-        id: "1",
-        title: "Learn Node.js Basics",
-        completed: false
-    },
-    {
-        id: "2",
-        title: "Practice Express.js API",
-        completed: false
-    },
-    {
-        id: "3",
-        title: "Understand Backend Flow",
-        completed: true
-    },
-];
+let todos: Todo[] = [];
 
 app.get("/api/todos", (req: Request, res: Response) => {
     console.log("GET /api/todos - Request received to fetch all todos");
