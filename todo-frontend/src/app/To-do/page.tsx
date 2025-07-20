@@ -7,7 +7,7 @@ interface Todo {
     completed: boolean;
 }
 
-const API_BASE_URL = "http://localhost:5000/api/todos";
+const API_BASE_URL = "https://todobackend-production-2cd8.up.railway.app/api/todos";
 
 
 export default function Todo() {
